@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Beans</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#F59E0B'
+                    },
+                    fontFamily: {
+                        poppins: ['poppins', 'sans-serif'],
+
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- header -->
+    <header class="shadow">
+        <nav class="container mx-auto px-4 flex gap-2 justify-between ">
+            <div class=""><img class="h-20" src="images/logo.png" alt=""></div>
+            <div class="hidden sm:flex items-center gap-4 md:text-xl">
+                <a href="">Home</a>
+                <a href="">Menu</a>
+                <a href="">Contact Us</a>
+                <a href="">About Us</a>
+            </div>
+
+            <button class="hidden sm:flex bg-green-200 px-2 my-6  rounded-md">order</button>
+        </nav>
+    </header>
+
+    <!-- main -->
+    <main>
+
+        <!-- hero section -->
+        <section class="bg-gray-100">
+            <div class="container mx-auto px-4 md:flex gap-6">
+                <div class="py-6 md:w-1/2">
+                    <p class="text-[#895B60]">
+                        Locally-Owned Coffee Shop Serving Cleveland</p>
+                    <h3 class="text-4xl py-5">Brewing Hope & Great Coffee in the heart of Buckeye</h3>
+                    <p class="py-4">Once a bar, now a beacon of ambition —The Tavern Coffee House is a unique &
+                        ecclectic café
+                        revitalizing the Buckeye-Shaker neighborhood through community, careers, and coffee.</p>
+                    <p class="font-bold pb-2">
+                        Open 8am – 1pm Monday-Friday
+                    </p>
+                    <div>
+                        <button class="bg-green-200 px-2 py-1 rounded shadow">Order Ahead</button>
+                        <button class="bg-green-200 px-2 py-1 rounded shadow">Our Menu</button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 my-auto ">
+                    <img src="images/cup.png" alt="">
+                </div>
+            </div>
+        </section>
+
+        <!-- menu section -->
+        <section>
+            <div class="container mx-auto px-4 py-10">
+                <div class="flex justify-center">
+                    <h3 class="text-2xl font-bold">Menu</h3>
+                </div>
+                <div class="grid md:grid-cols-4 gap-3">
+                    <!-- card of menu -->
+                    <div class="shadow-xl p-4 bg-gray-300 rounded-xl">
+                        <div>
+                            <img class="h-40" src="images/coffee.png" alt="">
+                        </div>
+                        <div class="py-2">
+                            <h4 class="font-semibold">Coffee</h4>
+                            <p class="font-semibold">Price:120</p>
+                        </div>
+                    </div>
+                    <div class="shadow-xl p-4 bg-gray-300 rounded-xl">
+                        <div>
+                            <img class="h-40 w-full" src="images/momo.png" alt="">
+                        </div>
+                        <div class="py-2">
+                            <h4 class="font-semibold">momo</h4>
+                            <p class="font-semibold">Price:100</p>
+                        </div>
+                    </div>
+                    <div class="shadow-xl p-4 bg-gray-300 rounded-xl">
+                        <div>
+                            <img class="h-40 w-full" src="images/chowmin.png" alt="">
+                        </div>
+                        <div class="py-2">
+                            <h4 class="font-semibold">Veg-Chowmin</h4>
+                            <p class="font-semibold">Price:150</p>
+                        </div>
+                    </div>
+                    <div class="shadow-xl p-4 bg-gray-300 rounded-xl">
+                        <div>
+                            <img class="h-40 w-full" src="images/keemaanoodle.png" alt="">
+                        </div>
+                        <div class="py-2">
+                            <h4 class="font-semibold">keemaanoodle</h4>
+                            <p class="font-semibold">Price:200</p>
+                        </div>
+                    </div>
+                    <div class="shadow-xl p-4 bg-gray-300 rounded-xl">
+                        <div>
+                            <img class="h-40 w-full" src="images/sandwitch.png" alt="">
+                        </div>
+                        <div class="py-2">
+                            <h4 class="font-semibold">sandwitch</h4>
+                            <p class="font-semibold">Price:90</p>
+                        </div>
+                    </div>
+                    <div class="shadow-xl p-4 bg-gray-300 rounded-xl">
+                        <div>
+                            <img class="h-40 w-full" src="images/burger.png" alt="">
+                        </div>
+                        <div class="py-2">
+                            <h4 class="font-semibold">burger</h4>
+                            <p class="font-semibold">Price:170</p>
+                        </div>
+                    </div>
+                    <div class="shadow-xl p-4 bg-gray-300 rounded-xl">
+                        <div>
+                            <img class="h-40 w-full" src="images/piizza.png" alt="">
+                        </div>
+                        <div class="py-2">
+                            <h4 class="font-semibold">pizza</h4>
+                            <p class="font-semibold">Price:160</p>
+                        </div>
+                    </div>
+                    <div class="shadow-xl p-4 bg-gray-300 rounded-xl">
+                        <div>
+                            <img class="h-40 w-full" src="images/lemonade.png" alt="">
+                        </div>
+                        <div class="py-2">
+                            <h4 class="font-semibold">lemonade</h4>
+                            <p class="font-semibold">Price:250</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <div>
+            <div>
+                <h4></h4>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

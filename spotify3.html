@@ -10,238 +10,285 @@
         integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
-<body>
+<body class="">
     <!-- header -->
-    <header>
-        <nav>
-            <div>
-                <i class="fa-brands fa-spotify"></i>
+    <header class="bg-[#000000]  px-5 py-2 sticky top-0">
+        <nav class="flex justify-between">
+            <div class="text-white text-2xl flex gap-6 items-center w-1/2">
+                <i class=" fa-brands fa-spotify"></i>
+                <div class="bg-[#1f1f1f] p-2 rounded-full"><i
+                        class="fa-solid fa-house   justify-between items-center "></i>
+                </div>
+
+                <div class="bg-[#1f1f1f] text-[#747474] py-2 px-4 rounded-3xl text-md  flex">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input class="bg-[#1f1f1f] text-xl outline-none mx-2 w-full" type="text"
+                        placeholder="What do you want to play?">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                </div>
             </div>
-            <div>
-                <i class="fa-solid fa-house"></i>
-                <input type="text">
-                <i class="fa-solid fa-basket-shopping"></i>
-            </div>
-            <div>
+
+            <div class="text-[#747474] font-bold flex gap-5 justify-between items-center">
                 <a href="">Premium</a>
                 <a href="">Support</a>
-                <a href="">Download</a>
-                <button>
+                <a class="border-r-2 pr-3" href="">Download</a>
+                <button class="">
                     <i class="fa-regular fa-circle-down"></i>
                     Install App
                 </button>
                 <button>Sign up</button>
-                <button>Log in</button>
+                <button class="bg-white px-5 py-2 rounded-3xl">Log in</button>
             </div>
         </nav>
     </header>
 
     <!-- main -->
-    <main>
+    <main class="flex gap-3 mx-auto">
         <!-- aside part -->
-        <aside>
-            <div>
-                <h4>Your Library</h4>
-                <i></i>
+        <aside class="bg-[#121212]  w-1/4 ">
+            <div class="py-8 px-5 flex items-center justify-between ">
+                <h4 class="text-white font-bold">Your Library</h4>
+                <div class="bg-[#1f1f1f] p-2 rounded-full"><i class="fa-solid fa-plus text-white"></i></div>
             </div>
-            <div>
-                <h5>Create your first playlist</h5>
+            <div class="text-white px-5 py-5 bg-[#1f1f1f] flex flex-col gap-2 mx-3">
+                <h5 class="font-bold">Create your first playlist</h5>
                 <p>it's easy,we'll help you</p>
-                <button>create playlist</button>
+                <button class="text-[#000000] font-semibold bg-white rounded-3xl w-[70%] py-1">create playlist</button>
             </div>
             <div>
-                <p> legal safety&privacy Center PrivacyPolicy Cookies AboutAds Accessibility Cookies</p>
-                <div>
-                    <i></i>
-                    <p>English</p>
+                <p class="text-[#575553] py-10 px-5"> legal safety&privacy Center PrivacyPolicy Cookies AboutAds
+                    Accessibility Cookies</p>
+                <div class="border-2 w-fit text-white px-3 py-1 flex items-center gap-2 mx-5 rounded-3xl">
+                    <i class="fa-solid fa-globe"></i>
+                    <p class="font-semibold">English</p>
                 </div>
             </div>
         </aside>
 
         <!-- section -->
-        <div>
+        <div class="flex flex-col w-3/4 bg-[#121212]">
             <!-- Trending section................................................... -->
             <section>
-                <div>
-                    <h3>Trendings songs</h3>
-                    <a href="">show all</a>
+                <div class="flex justify-between text-white py-5 px-10">
+                    <h3 class="font-bold text-2xl">Trendings songs</h3>
+                    <a class="text-[#636363]" href="">show all</a>
                 </div>
-                <div>
+                <div class="flex gap-3 px-3 text-white">
                     <div>
-                        <img src="spotifyImages/barsat.png" alt="">
+                        <img class="rounded-xl" src="spotifyImages/barsat.png" alt="">
                         <h5>Barsaat</h5>
-                        <p>Banjaare,Roni</p>
+                        <p class="text-[#636363]">Banjaare,Roni</p>
                     </div>
                     <div>
-                        <img src="spotifyImages/hawa.png" alt="">
+                        <img class="rounded-xl" src="spotifyImages/hawa.png" alt="">
                         <h5>Yo Hawalai</h5>
-                        <p>Bikki Gurung</p>
+                        <p class="text-[#636363]">Bikki Gurung</p>
                     </div>
                     <div>
-                        <img src="spotifyImages/maya.png" alt="">
+                        <img class="rounded-xl" src="spotifyImages/maya.png" alt="">
                         <h5>Maya Le</h5>
-                        <p>John Rai</p>
+                        <p class="text-[#636363]">John Rai</p>
                     </div>
                     <div>
-                        <img src="spotifyImages/arz.png" alt="">
+                        <img class="rounded-xl" src="spotifyImages/arz.png" alt="">
                         <h5>Arz Kiya Hai | Coke Studio Bharat</h5>
-                        <p>Anuv Jain</p>
+                        <p class="text-[#636363]">Anuv Jain</p>
                     </div>
                     <div>
-                        <img src="spotifyImages/sunflower.png" alt="">
+                        <img class="rounded-xl" src="spotifyImages/sunflower.png" alt="">
                         <h5>Sunflower-Spider-Man:into the Spider</h5>
-                        <p>Post Maloni,Swae Lee</p>
+                        <p class="text-[#636363]">Post Maloni,Swae Lee</p>
                     </div>
                 </div>
             </section>
 
             <!-- Artist section................................................... -->
             <section>
-                <div>
-                    <h3>Popular artists</h3>
-                    <a href="">Show all</a>
+                <div class="flex justify-between text-white py-5 px-10">
+                    <h3 class="font-bold text-2xl">Popular artists</h3>
+                    <a class="text-[#636363]" href="">Show all</a>
                 </div>
-                <div>
+                <div class="flex gap-3 px-3 text-white">
                     <div>
                         <img src="spotifyImages/pritam.png" alt="">
                         <h5>Pritam</h5>
-                        <p>Artist</p>
+                        <p class="text-[#636363]">Artist</p>
                     </div>
                     <div>
                         <img src="spotifyImages/sushant.png" alt="">
                         <h5>sushant KC</h5>
-                        <p>Artist</p>
+                        <p class="text-[#636363]">Artist</p>
                     </div>
                     <div>
                         <img src="spotifyImages/john.png" alt="">
                         <h5>John Rai</h5>
-                        <p>Artist</p>
+                        <p class="text-[#636363]">Artist</p>
                     </div>
                     <div>
                         <img src="spotifyImages/purna.png" alt="">
                         <h5>Purna Rai</h5>
-                        <p>Artist</p>
+                        <p class="text-[#636363]">Artist</p>
                     </div>
                     <div>
                         <img src="spotifyImages/arjit.png" alt="">
                         <h5>Arijit Singh</h5>
-                        <p>Artist</p>
+                        <p class="text-[#636363]">Artist</p>
                     </div>
                 </div>
             </section>
 
-            <!--  -->
+            <!--POpular albums and singles...................................-->
             <section>
-                <div>
-                    <h3></h3>
-                    <a href=""></a>
+                <div class="flex justify-between text-white py-5 px-10">
+                    <h3 class="font-bold text-2xl">Trendings songs</h3>
+                    <a class="text-[#636363]" href="">show all</a>
                 </div>
-                <div>
+                <div class="flex gap-3 px-3 text-white">
                     <div>
-                        <img src="" alt="">
-                        <h5></h5>
-                        <p></p>
+                        <img class="rounded-xl" src="spotifyImages/tribal.png" alt="">
+                        <h5>Roka Yo Samaye</h5>
+                        <p class="text-[#636363]">Tribal Rain</p>
                     </div>
                     <div>
-                        <img src="" alt="">
-                        <h5></h5>
-                        <p></p>
+                        <img class="rounded-xl" src="spotifyImages/monkey.png" alt="">
+                        <h5>Monkey Temple</h5>
+                        <p class="text-[#636363]">Monkey Temple Nepal</p>
                     </div>
                     <div>
-                        <img src="" alt="">
-                        <h5></h5>
-                        <p></p>
+                        <img class="rounded-xl" src="spotifyImages/billie.png" alt="">
+                        <h5>HIT ME HARD AND SOFT</h5>
+                        <p class="text-[#636363]">Billie Eilish/p>
                     </div>
                     <div>
-                        <img src="" alt="">
-                        <h5></h5>
-                        <p></p>
+                        <img class="rounded-xl" src="spotifyImages/maya.png" alt="">
+                        <h5>Maya Ma (2018 Compilation)</h5>
+                        <p class="text-[#636363]">Sushant Kc</p>
+                    </div>
+                    <div>
+                        <img class="rounded-xl" src="spotifyImages/sabin.png" alt="">
+                        <h5>Dhanyavaad</h5>
+                        <p class="text-[#636363]">Sabin Rai & The Pharaoh</p>
                     </div>
                 </div>
             </section>
+
+
+            <!-- popular radio .................................................................. -->
             <section>
-                <div>
-                    <h3></h3>
-                    <a href=""></a>
+                <div class="flex justify-between text-white py-5 px-10">
+                    <h3 class="font-bold text-2xl">Popular radio</h3>
+                    <a class="text-[#636363]" href="">Show all</a>
                 </div>
-                <div>
+                <div class="grid grid-cols-5 gap-3 px-3 text-white">
                     <div>
-                        <img src="" alt="">
-                        <h5></h5>
-                        <p></p>
+                        <img src="spotifyImages/arjitt.png" alt="">
+                        <p class="text-[#636363]">With jeet Gannguli,Pritam,A.Rtahman</p>
                     </div>
                     <div>
-                        <img src="" alt="">
-                        <h5></h5>
-                        <p></p>
+                        <img src="spotifyImages/sujan.png" alt="">
+                        <p class="text-[#636363]">With Trishna Gurung, ArtMandu, Kali Prasad Baskota and mor</p>
                     </div>
                     <div>
-                        <img src="" alt="">
-                        <h5></h5>
-                        <p></p>
+                        <img src="spotifyImages/jamsey.png" alt="">
+                        <p class="text-[#636363]">With Lil Jhola, Nawaj Ansari, YABI The G.O.A.T and more</p>
                     </div>
                     <div>
-                        <img src="" alt="">
-                        <h5></h5>
-                        <p></p>
+                        <img src="spotifyImages/rockhead.png" alt="">
+                        <p class="text-[#636363]">With Swar, Purna Rai, Albatross and more</p>
+                    </div>
+                    <div>
+                        <img src="spotifyImages/purnaa.png" alt="">
+                        <p class="text-[#636363]">With John Rai, Swar, Sajjan Raj Vaidya and more</p>
                     </div>
                 </div>
             </section>
+
+
+            <!--Featured Charts ............................. -->
             <section>
-                <div>
-                    <h5></h5>
-                    <a href=""></a>
+                <div class="flex justify-between text-white py-5 px-10">
+                    <h3 class="font-bold text-2xl">Popular radio</h3>
+                    <a class="text-[#636363]" href="">Show all</a>
                 </div>
-                <div>
+                <div class="grid grid-cols-5 gap-3 px-3 text-white">
                     <div>
-                        <img src="" alt="">
-                        <p></p>
+                        <img src="spotifyImages/global.png" alt="">
+                        <p class="text-[#636363]">Your weekly update of the most played tracks right now - Global.</p>
                     </div>
                     <div>
-                        <img src="" alt="">
-                        <p></p>
+                        <img src="spotifyImages/usa.png" alt="">
+                        <p class="text-[#636363]">Your weekly update of the most played tracks right now - USA.</p>
                     </div>
                     <div>
-                        <img src="" alt="">
-                        <p></p>
+                        <img src="spotifyImages/topGlobal.png" alt="">
+                        <p class="text-[#636363]">Your daily update of the most played tracks right now - Global.</p>
                     </div>
                     <div>
-                        <img src="" alt="">
-                        <p></p>
+                        <img src="spotifyImages/topUsa.png" alt="">
+                        <p class="text-[#636363]">Your daily update of the most played tracks right now - Global.</p>
                     </div>
+
                 </div>
             </section>
 
             <!-- footer section -->
-            <footer>
-                <div>
+            <footer class="text-white  py-10 px-5">
+                <div class="grid grid-cols-5 py-6">
                     <div>
-                        <h4></h4>
-                        <ul></ul>
+                        <h4 class="font-bold">Company</h4>
+                        <ul class="text-[#636363]">
+                            <li>About</li>
+                            <li>Jobs</li>
+                            <li>For the Record</li>
+                        </ul>
                     </div>
                     <div>
-                        <h4></h4>
-                        <ul></ul>
+                        <h4 class="font-bold">Communities</h4>
+                        <ul class="text-[#636363]">
+                            <li>For Artists</li>
+                            <li>Developers</li>
+                            <li>Advertising</li>
+                            <li>Investors</li>
+                            <li>Vendors</li>
+                        </ul>
                     </div>
                     <div>
-                        <h4></h4>
-                        <ul></ul>
+                        <h4 class="font-bold">Useful links</h4>
+                        <ul class="text-[#636363]">
+                            <li>Support</li>
+                            <li>Free Mobile App</li>
+                            <li>Popular by Country</li>
+                            <li>Import your music</li>
+                        </ul>
                     </div>
                     <div>
-                        <i></i>
-                        <i></i>
-                        <i></i>
+                        <h4 class="font-bold">Spotify Plans</h4>
+                        <ul class="text-[#636363]">
+                            <li>Premium Individual</li>
+                            <li>Premium Duo</li>
+                            <li>Premium Family</li>
+                            <li>Premium Student</li>
+                            <li>Spotify Free</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-x-twitter"></i>
+                        <i class="fa-brands fa-facebook"></i>
                     </div>
                 </div>
-                <p></p>
+                <div class=" flex justify-end py-10 border-t">
+                    <p class="text-[#636363] ">© 2026 Spotify AB</p>
+                </div>
             </footer>
         </div>
     </main>
 
-    <!-- footer -->
-    <footer></footer>
 
 </body>
 

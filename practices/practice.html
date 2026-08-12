@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class=" flex  justify-between items-center h-screen px-20">
+
+    <form action="" id="form" class="bg-gray-300 w-1/2 h-3/4 rounded-3xl">
+        <div class="flex justify-center relative bottom-10 ">
+            <img class="w-96 h-64" src="../images/visa.jpeg" alt="">
+        </div>
+        <div class="flex flex-col px-5 gap-3">
+            <label for=""> Card Number</label>
+            <input id="cardNumber" class="border border-black" type="text">
+            <label for="">Card Holder</label>
+            <input id="cardHolder" class="border border-black" type="text">
+        </div>
+        <div class="flex py-5 justify-between w-full px-5">
+            <div class="flex flex-col gap-2">
+                <label for="">Expiration Date</label>
+                <select id="expirationDate">
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                </select>
+            </div>
+            <div class="flex pt-7  ">
+                <input class="border border-black" type="text">
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="">CVV</label>
+                <input id="Cvv" class="border border-black" type="text">
+            </div>
+        </div>
+        <div class="px-10">
+            <button type="submit" class="bg-blue-500 w-full py-2 rounded">submit</button>
+        </div>
+    </form>
+
+    <!-- table  -->
+    <section>
+        <table class="border border-black">
+            <thead>
+                <tr>
+                    <th class="border border-black">Card Number</th>
+                    <th class="border border-black">Card Holder</th>
+                    <th class="border border-black">Expiration Date</th>
+                    <th class="border border-black">CVV</th>
+                </tr>
+            </thead>
+            <tbody id="table"></tbody>
+        </table>
+    </section>
+
+    <!-- js part................... -->
+    <script>
+        const form = document.querySelector("#form")
+        const table = document.querySelector("#table")
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const cardnumber = document.querySelector("#cardNumber").value;
+            const cardholder = document.querySelector("#cardHolder").value;
+            const expiration = document.querySelector("#expirationDate").value;
+            const cvv = document.querySelector("#Cvv").value;
+
+            table.innerHTML +=`
+                <tr>
+                    <td>${cardnumber}</td>
+                    <td>${cardholder}</td>
+                    <td>${expiration}</td>
+                    <td>${cvv}</td>
+                </tr>
+                `
+        })
+
+
+    </script>
+
+</body>
+
+</html>

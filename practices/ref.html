@@ -69,8 +69,21 @@
 
     <!-- js part..................... -->
     <script>
-        const form = document.querySelector("#form")
-        const table = document.querySelector("#table")
+        const form = document.querySelector("#form");
+        const table = document.querySelector("#table");
+
+        let cards = JSON.parse(localStorage.getItem("cards")) || [];
+
+        cards.forEach(function (card) {
+            table.innerHTML += `
+        <tr>
+            <td>${card.cardnumber}</td>
+            <td>${card.cardholder}</td>
+            <td>${card.expiry}</td>
+            <td>${card.cvv}</td>
+        </tr>
+    `;
+        });
 
         form.addEventListener("submit", function (e) {
             e.preventDefault();
@@ -79,19 +92,33 @@
             const cardholder = document.querySelector("#cardHolder").value;
             const expirationDate = document.querySelector("#expirationDate").value;
             const expirationMonth = document.querySelector("#expirationMonth").value;
-            const expiry = expirationDate + "" + expirationMonth
+
+            const expiry = expirationDate + " " + expirationMonth;
+
             const cvv = document.querySelector("#Cvv").value;
 
-            table.innerHTML += `
-                <tr>
-                    <td>${cardnumber}</td>
-                    <td>${cardholder}</td>
-                    <td>${expiry}</td>
-                    <td>${cvv}</td>
-                </tr>
-                `
-        })
+            const card = {
+                cardnumber: cardnumber,
+                cardholder: cardholder,
+                expiry: expiry,
+                cvv: cvv
+            };
 
+            cards.push(card);
+
+            localStorage.setItem("cards", JSON.stringify(cards));
+
+            table.innerHTML += `
+        <tr>
+            <td>${cardnumber}</td>
+            <td>${cardholder}</td>
+            <td>${expiry}</td>
+            <td>${cvv}</td>
+        </tr>
+    `;
+
+            form.reset();
+        });
 
     </script>
 

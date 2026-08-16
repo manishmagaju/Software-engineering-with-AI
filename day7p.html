@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beatPage</title>
+
+    <style>
+        .beatboxes {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            gap: 10px;
+
+        }
+
+        .box1 {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .boxes {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            border-radius: 30px;
+        }
+
+        #box2,
+        #box3 {
+            background-color: green;
+            animation: boxexpand1 0.3s ease-in-out infinite alternate;
+
+        }
+
+        #box1,#box4{
+            animation: boxexpand1 0.3s ease-in-out 0.3s infinite alternate;
+            
+        }
+
+        .audio {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        @keyframes boxexpand1 {
+            from {
+                transform: scale(0.5);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Beat Wave</h1>
+
+    <div class="beatboxes">
+        <div class="box1">
+            <div class="boxes" id="box1"></div>
+            <div class="boxes" id="box2"></div>
+        </div>
+        <div class=" box1">
+            <div class="boxes" id="box3"></div>
+            <div class="boxes" id="box4"></div>
+        </div>
+    </div>
+
+    <div class="audio">
+        <audio controls src="audio/beat.mp3"></audio>
+    </div>
+</body>
+
+</html>

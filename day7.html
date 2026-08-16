@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flexbox</title>
+    <style>
+        .box {
+            position: absolute;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box1 {
+
+            background-color: red;
+            animation: rotating1 4s linear infinite;
+
+
+        }
+
+        #box2 {
+
+            background-color: green;
+            transform: translateX(calc(100vw - 110px));
+            animation: rotating1 4s linear 1s infinite;
+
+
+        }
+
+        #box3 {
+
+            background-color: blue;
+            transform: translateX(calc(100vw - 110px)) translateY(calc(100vh - 110px));
+            animation: rotating1 4s linear 2s infinite;
+
+
+
+        }
+
+        #box4 {
+            background-color: pink;
+            transform: translateY(calc(100vh - 110px));
+            animation: rotating1 4s linear 3s infinite;
+
+
+
+        }
+
+        .paragraph {
+            padding: 40px;
+            font-size: xx-large;
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+        }
+
+        .coding {
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            font-size: 100px;
+            color: yellow;
+            background-color: aqua;
+        }
+
+        #coding-text::before {
+            content: "html";
+            animation: changeText 0.5s infinite;
+
+        }
+
+        @keyframes rotating1 {
+
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translateX(calc(100vw - 100px));
+
+            }
+
+            50% {
+                transform: translate(calc(100vw - 100px), calc(100vh - 100px));
+
+            }
+
+            75% {
+                transform: translate(0, calc(100vh - 100px));
+
+            }
+
+            100% {
+                transform: translate(0, 0)
+            }
+
+        }
+
+
+
+        .paragraph {
+            animation: para1 0.2s linear infinite;
+        }
+
+        @keyframes para1 {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(50px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes changeText {
+
+            0%,
+            30% {
+                content: "HTML";
+            }
+
+            31%,
+            60% {
+                content: "CSS";
+            }
+
+            61%,
+            100% {
+                content: "JavaScript";
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="paragraph">
+        <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel laudantium inventore provident
+            beatae magni
+            praesentium reiciendis nihil molestias unde nam et nostrum sint in expedita officiis id, saepe quam,
+            voluptatum mollitia harum delectus aperiam fugiat! Earum nulla repellat illum harum consequuntur alias
+            laudantium modi quas odit temporibus, voluptas maiores rem reprehenderit non numquam atque eum cum ipsa!
+            Quis explicabo excepturi soluta illum quas deserunt, placeat facere nihil iusto architecto voluptatem!
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque odio, similique, debitis, eos possimus
+            ratione numquam deleniti impedit aspernatur laboriosam amet nobis nostrum. Amet similique quas
+            exercitationem sapiente veniam fugiat, beatae error maxime perspiciatis cumque sit voluptatem voluptatibus
+            inventore nulla sint praesentium voluptas consequuntur assumenda vero facere. Temporibus aspernatur
+            necessitatibus nobis commodi ipsa blanditiis pariatur, nesciunt, tenetur dicta iste asperiores tempora dolor
+            repellendus aut ea incidunt a totam labore, corrupti modi molestiae. Iste, sunt hic? Cum odit impedit
+            dolorem necessitatibus!
+        </p>
+
+    </div>
+    <div class="coding" id="coding-text"></div>
+
+    <audio controls src="audio/drake.mp3"></audio>
+
+
+    <div id="box1" class="box">
+        box1
+    </div>
+    <div id="box2" class="box">
+        box2
+    </div>
+    <div id="box3" class="box">
+        box3
+    </div>
+    <div id="box4" class="box">
+        box4
+    </div>
+
+
+</body>
+
+</html>

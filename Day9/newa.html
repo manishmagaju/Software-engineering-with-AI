@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newanext — Software engineering for what's next</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0E0F14;
+            --ink-2: #15161E;
+            --paper: #F6F5F1;
+            --paper-2: #ECEAE3;
+            --indigo: #4C5FFF;
+            --indigo-2: #3846D6;
+            --amber: #FFB238;
+            --line-dark: rgba(246, 245, 241, 0.12);
+            --line-light: rgba(14, 15, 20, 0.10);
+            --muted-dark: #9A9CAE;
+            --muted-light: #63636B;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--paper);
+            font-family: 'Inter', sans-serif;
+            color: var(--ink);
+        }
+
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .bg-ink {
+            background-color: var(--ink);
+        }
+
+        .bg-ink-2 {
+            background-color: var(--ink-2);
+        }
+
+        .bg-paper {
+            background-color: var(--paper);
+        }
+
+        .bg-paper-2 {
+            background-color: var(--paper-2);
+        }
+
+        .text-indigo {
+            color: var(--indigo);
+        }
+
+        .bg-indigo {
+            background-color: var(--indigo);
+        }
+
+        .bg-indigo-2 {
+            background-color: var(--indigo-2);
+        }
+
+        .text-amber {
+            color: var(--amber);
+        }
+
+        .bg-amber {
+            background-color: var(--amber);
+        }
+
+        .border-line-dark {
+            border-color: var(--line-dark);
+        }
+
+        .border-line-light {
+            border-color: var(--line-light);
+        }
+
+        .text-muted-dark {
+            color: var(--muted-dark);
+        }
+
+        .text-muted-light {
+            color: var(--muted-light);
+        }
+
+        .grid-overlay {
+            background-image:
+                linear-gradient(var(--line-dark) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line-dark) 1px, transparent 1px);
+            background-size: 64px 64px;
+        }
+
+        .btn-primary {
+            background: var(--indigo);
+            color: #fff;
+            transition: transform .15s ease, background .15s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--indigo-2);
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            border: 1px solid var(--line-dark);
+            color: var(--paper);
+            transition: border-color .15s ease, background .15s ease;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--paper);
+            background: rgba(246, 245, 241, 0.06);
+        }
+
+        .card {
+            transition: transform .2s ease, border-color .2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: var(--indigo);
+        }
+
+        .term-line {
+            opacity: 0;
+            animation: fadeIn .4s ease forwards;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: var(--amber);
+            animation: blink 1s steps(1) infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--amber);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        ::selection {
+            background: var(--indigo);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- NAV -->
+    <header class="sticky top-0 z-50 bg-ink/95 backdrop-blur border-b border-line-dark">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+            <a href="#top" class="font-display text-xl font-semibold text-paper tracking-tight">
+                newa<span class="text-indigo">next</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 font-mono text-sm text-muted-dark">
+                <a href="#services" class="hover:text-paper transition-colors">services</a>
+                <a href="#process" class="hover:text-paper transition-colors">process</a>
+                <a href="#work" class="hover:text-paper transition-colors">work</a>
+                <a href="#contact" class="hover:text-paper transition-colors">contact</a>
+            </nav>
+            <a href="#contact"
+                class="hidden md:inline-flex items-center rounded-full btn-primary text-sm font-medium px-5 py-2.5">
+                Start a project
+            </a>
+            <button id="menuBtn" class="md:hidden text-paper" aria-label="Open menu" aria-expanded="false">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-ink border-t border-line-dark px-6 py-4 flex flex-col gap-4 font-mono text-sm text-muted-dark">
+            <a href="#services" class="hover:text-paper">services</a>
+            <a href="#process" class="hover:text-paper">process</a>
+            <a href="#work" class="hover:text-paper">work</a>
+            <a href="#contact" class="hover:text-paper">contact</a>
+            <a href="#contact"
+                class="mt-2 inline-flex justify-center rounded-full btn-primary text-sm font-medium px-5 py-2.5">Start a
+                project</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="top" class="relative bg-ink text-paper overflow-hidden">
+        <div
+            class="absolute inset-0 grid-overlay opacity-60 [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,#000_40%,transparent_100%)]">
+        </div>
+        <div
+            class="relative max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-24 lg:pt-28 lg:pb-32 grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7">
+                <p class="font-mono text-sm text-amber mb-6 flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber inline-block"></span>
+                    software engineering studio
+                </p>
+                <h1
+                    class="font-display font-semibold text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-[3.6rem] tracking-tight">
+                    Whatever's next<br>
+                    for your business,<br>
+                    <span class="text-indigo">we ship it now.</span>
+                </h1>
+                <p class="mt-7 text-lg text-muted-dark max-w-xl leading-relaxed">
+                    Newanext is a product engineering team that builds, hardens, and runs
+                    software for companies that can't afford to wait on their roadmap.
+                    Web platforms, mobile apps, cloud infrastructure, one team, one build.
+                </p>
+                <div class="mt-9 flex flex-wrap items-center gap-4">
+                    <a href="#contact" class="rounded-full btn-primary font-medium px-7 py-3.5 text-[15px]">Start a
+                        project</a>
+                    <a href="#work" class="rounded-full btn-ghost font-medium px-7 py-3.5 text-[15px]">See our work
+                        &rarr;</a>
+                </div>
+            </div>
+
+            <!-- signature element: live build log -->
+            <div class="lg:col-span-5">
+                <div class="rounded-xl bg-ink-2 border border-line-dark overflow-hidden shadow-2xl">
+                    <div class="flex items-center gap-2 px-4 py-3 border-b border-line-dark">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></span>
+                        <span class="ml-3 font-mono text-xs text-muted-dark">newanext/deploy — production</span>
+                    </div>
+                    <div id="termBody"
+                        class="font-mono text-[13px] leading-7 px-5 py-5 h-64 overflow-hidden text-muted-dark"></div>
+                </div>
+                <p class="font-mono text-xs text-muted-dark mt-3 pl-1">// what shipping looks like on a Tuesday</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <section class="bg-paper border-b border-line-light">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 py-12 grid grid-cols-2 md:grid-cols-4 divide-x divide-line-light">
+            <div class="px-4 sm:px-8 first:pl-0">
+                <p class="font-display text-3xl sm:text-4xl font-semibold">9<span class="text-indigo">yrs</span></p>
+                <p class="font-mono text-xs text-muted-light mt-1">building software</p>
+            </div>
+            <div class="px-4 sm:px-8">
+                <p class="font-display text-3xl sm:text-4xl font-semibold">120<span class="text-indigo">+</span></p>
+                <p class="font-mono text-xs text-muted-light mt-1">products shipped</p>
+            </div>
+            <div class="px-4 sm:px-8">
+                <p class="font-display text-3xl sm:text-4xl font-semibold">99.95<span class="text-indigo">%</span></p>
+                <p class="font-mono text-xs text-muted-light mt-1">uptime, last 12mo</p>
+            </div>
+            <div class="px-4 sm:px-8">
+                <p class="font-display text-3xl sm:text-4xl font-semibold">24<span class="text-indigo">/7</span></p>
+                <p class="font-mono text-xs text-muted-light mt-1">on-call support</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="bg-paper py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
+                <div>
+                    <p class="font-mono text-sm text-indigo mb-3">$ services --list</p>
+                    <h2 class="font-display text-4xl sm:text-5xl font-semibold tracking-tight max-w-xl">Everything it
+                        takes to go from idea to production.</h2>
+                </div>
+                <p class="text-muted-light max-w-sm">We work as an embedded team or a fixed-scope build — either way,
+                    one group owns the outcome, not just the tickets.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="reveal card rounded-xl border border-line-light bg-white p-7">
+                    <p class="font-mono text-xs text-indigo mb-4">/web-engineering</p>
+                    <h3 class="font-display text-xl font-semibold mb-2">Product &amp; web platforms</h3>
+                    <p class="text-sm text-muted-light leading-relaxed">Full-stack builds for customer-facing products
+                        and internal tools, designed to hold up under real traffic.</p>
+                </div>
+                <div class="reveal card rounded-xl border border-line-light bg-white p-7">
+                    <p class="font-mono text-xs text-indigo mb-4">/mobile</p>
+                    <h3 class="font-display text-xl font-semibold mb-2">iOS &amp; Android apps</h3>
+                    <p class="text-sm text-muted-light leading-relaxed">Native and cross-platform apps, from first
+                        release through the App Store review nobody enjoys.</p>
+                </div>
+                <div class="reveal card rounded-xl border border-line-light bg-white p-7">
+                    <p class="font-mono text-xs text-indigo mb-4">/cloud-devops</p>
+                    <h3 class="font-display text-xl font-semibold mb-2">Cloud &amp; infrastructure</h3>
+                    <p class="text-sm text-muted-light leading-relaxed">AWS/GCP architecture, CI/CD pipelines, and
+                        monitoring so deploys stay boring, in the good way.</p>
+                </div>
+                <div class="reveal card rounded-xl border border-line-light bg-white p-7">
+                    <p class="font-mono text-xs text-indigo mb-4">/data-ai</p>
+                    <h3 class="font-display text-xl font-semibold mb-2">Data &amp; AI systems</h3>
+                    <p class="text-sm text-muted-light leading-relaxed">Pipelines, analytics, and applied ML features
+                        that solve a specific business problem, not a demo.</p>
+                </div>
+                <div class="reveal card rounded-xl border border-line-light bg-white p-7">
+                    <p class="font-mono text-xs text-indigo mb-4">/design</p>
+                    <h3 class="font-display text-xl font-semibold mb-2">Product design</h3>
+                    <p class="text-sm text-muted-light leading-relaxed">Interfaces designed alongside engineering, so
+                        what ships matches what was designed.</p>
+                </div>
+                <div class="reveal card rounded-xl border border-line-light bg-white p-7">
+                    <p class="font-mono text-xs text-indigo mb-4">/modernization</p>
+                    <h3 class="font-display text-xl font-semibold mb-2">Legacy modernization</h3>
+                    <p class="text-sm text-muted-light leading-relaxed">Migrate and refactor aging systems without
+                        stopping the business that depends on them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="bg-ink text-paper py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <p class="reveal font-mono text-sm text-amber mb-3">how we work</p>
+            <h2 class="reveal font-display text-4xl sm:text-5xl font-semibold tracking-tight max-w-xl mb-16">A build
+                process with no black box in the middle.</h2>
+
+            <div class="grid md:grid-cols-5 gap-8 md:gap-6">
+                <div class="reveal">
+                    <p class="font-display text-3xl text-indigo mb-3">01</p>
+                    <h3 class="font-semibold mb-2">Discover</h3>
+                    <p class="text-sm text-muted-dark leading-relaxed">Scope the problem, the constraints, and what
+                        "done" actually means.</p>
+                </div>
+                <div class="reveal">
+                    <p class="font-display text-3xl text-indigo mb-3">02</p>
+                    <h3 class="font-semibold mb-2">Design</h3>
+                    <p class="text-sm text-muted-dark leading-relaxed">Architecture and interface decisions made
+                        together, before code is written.</p>
+                </div>
+                <div class="reveal">
+                    <p class="font-display text-3xl text-indigo mb-3">03</p>
+                    <h3 class="font-semibold mb-2">Build</h3>
+                    <p class="text-sm text-muted-dark leading-relaxed">Weekly demos, real code from day one, no surprise
+                        at the end.</p>
+                </div>
+                <div class="reveal">
+                    <p class="font-display text-3xl text-indigo mb-3">04</p>
+                    <h3 class="font-semibold mb-2">Ship</h3>
+                    <p class="text-sm text-muted-dark leading-relaxed">Staged rollout, monitoring in place before launch
+                        day, not after.</p>
+                </div>
+                <div class="reveal">
+                    <p class="font-display text-3xl text-indigo mb-3">05</p>
+                    <h3 class="font-semibold mb-2">Support</h3>
+                    <p class="text-sm text-muted-dark leading-relaxed">We stay on the pager. Fixes and iteration don't
+                        need a new contract.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="bg-paper py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
+                <div>
+                    <p class="font-mono text-sm text-indigo mb-3">$ git log --recent</p>
+                    <h2 class="font-display text-4xl sm:text-5xl font-semibold tracking-tight max-w-xl">Recent builds.
+                    </h2>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-5">
+                <div class="reveal card rounded-xl border border-line-light bg-white overflow-hidden">
+                    <div class="h-40 bg-gradient-to-br from-indigo to-ink-2"></div>
+                    <div class="p-6">
+                        <p class="font-mono text-xs text-muted-light mb-2">fintech · web platform</p>
+                        <h3 class="font-display text-lg font-semibold mb-2">Ledger, rebuilt on a real-time core</h3>
+                        <p class="text-sm text-muted-light leading-relaxed">Migrated a batch-based accounting system to
+                            event-driven infrastructure, cutting reconciliation time from hours to seconds.</p>
+                    </div>
+                </div>
+                <div class="reveal card rounded-xl border border-line-light bg-white overflow-hidden">
+                    <div class="h-40 bg-gradient-to-br from-amber to-ink-2"></div>
+                    <div class="p-6">
+                        <p class="font-mono text-xs text-muted-light mb-2">logistics · mobile</p>
+                        <h3 class="font-display text-lg font-semibold mb-2">Fleet app for 4,000 drivers</h3>
+                        <p class="text-sm text-muted-light leading-relaxed">Offline-first Android app for route
+                            dispatch, built to work reliably in low-signal delivery zones.</p>
+                    </div>
+                </div>
+                <div class="reveal card rounded-xl border border-line-light bg-white overflow-hidden">
+                    <div class="h-40 bg-gradient-to-br from-ink-2 to-indigo-2"></div>
+                    <div class="p-6">
+                        <p class="font-mono text-xs text-muted-light mb-2">healthcare · data &amp; AI</p>
+                        <h3 class="font-display text-lg font-semibold mb-2">Triage assist for a regional clinic network
+                        </h3>
+                        <p class="text-sm text-muted-light leading-relaxed">A decision-support tool that flags high-risk
+                            intake cases for clinician review, deployed across 14 sites.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="bg-ink text-paper py-24 lg:py-28 border-t border-line-dark">
+        <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center">
+            <p class="font-display text-2xl sm:text-3xl leading-snug">
+                "Newanext plugged in like they'd been on our team for years. We stopped
+                explaining context after the second week and started shipping."
+            </p>
+            <p class="font-mono text-sm text-muted-dark mt-8">Head of Engineering, mid-market logistics company</p>
+        </div>
+    </section>
+
+    <!-- CTA / CONTACT -->
+    <section id="contact" class="bg-paper py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div
+                class="rounded-2xl bg-ink text-paper px-8 py-16 sm:px-16 sm:py-20 text-center relative overflow-hidden">
+                <div
+                    class="absolute inset-0 grid-overlay opacity-40 [mask-image:radial-gradient(ellipse_70%_70%_at_50%_50%,#000_30%,transparent_100%)]">
+                </div>
+                <div class="relative">
+                    <p class="font-mono text-sm text-amber mb-4">ready when you are</p>
+                    <h2 class="font-display text-4xl sm:text-5xl font-semibold tracking-tight max-w-2xl mx-auto">Tell us
+                        what you're building next.</h2>
+                    <p class="text-muted-dark mt-5 max-w-lg mx-auto">Send a short brief and we'll come back with real
+                        scope and a timeline, not a sales call.</p>
+                    <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
+                        <a href="mailto:hello@newanext.com"
+                            class="rounded-full btn-primary font-medium px-7 py-3.5 text-[15px]">hello@newanext.com</a>
+                        <a href="#" class="rounded-full btn-ghost font-medium px-7 py-3.5 text-[15px]">Book a call
+                            &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-ink text-muted-dark border-t border-line-dark">
+        <div
+            class="max-w-7xl mx-auto px-6 lg:px-10 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div>
+                <p class="font-display text-lg font-semibold text-paper">newa<span class="text-indigo">next</span></p>
+                <p class="font-mono text-xs mt-2">Software engineering studio</p>
+            </div>
+            <nav class="flex flex-wrap gap-6 font-mono text-xs">
+                <a href="#services" class="hover:text-paper">services</a>
+                <a href="#process" class="hover:text-paper">process</a>
+                <a href="#work" class="hover:text-paper">work</a>
+                <a href="#contact" class="hover:text-paper">contact</a>
+            </nav>
+            <p class="font-mono text-xs">&copy; 2026 Newanext. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            const open = mobileMenu.classList.toggle('hidden');
+            menuBtn.setAttribute('aria-expanded', String(!open));
+        });
+
+        // signature build-log terminal
+        const lines = [
+            { t: '$ git push origin main', c: '#F6F5F1' },
+            { t: 'remote: resolving deltas... done.', c: '#9A9CAE' },
+            { t: 'Building newanext/web-platform...', c: '#9A9CAE' },
+            { t: '✓ typecheck passed', c: '#28C840' },
+            { t: '✓ 412 tests passed', c: '#28C840' },
+            { t: '✓ build completed in 41s', c: '#28C840' },
+            { t: 'Deploying to production...', c: '#9A9CAE' },
+            { t: '✓ deploy live at 03:14 UTC', c: '#FFB238' },
+            { t: 'status: all systems normal', c: '#4C5FFF' },
+        ];
+        const termBody = document.getElementById('termBody');
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function typeLog() {
+            termBody.innerHTML = '';
+            lines.forEach((line, i) => {
+                const div = document.createElement('div');
+                div.className = 'term-line';
+                div.style.animationDelay = (prefersReduced ? 0 : i * 0.35) + 's';
+                div.style.color = line.c;
+                div.textContent = line.t;
+                termBody.appendChild(div);
+            });
+            const cursor = document.createElement('span');
+            cursor.className = 'cursor';
+            termBody.appendChild(cursor);
+        }
+        typeLog();
+        if (!prefersReduced) { setInterval(typeLog, lines.length * 350 + 2600); }
+
+        // scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+
+</html>

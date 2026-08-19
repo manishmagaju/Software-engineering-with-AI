@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nordic Frames</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .animate-move-right {
+            animation: move-right 1.3s linear 1;
+        }
+
+        @keyframes move-right {
+            from {
+                transform: translateX(-300px);
+            }
+
+            to {
+                transform: translate(0, 0);
+            }
+        }
+
+        .animate-move-left {
+            animation: move-left 1.3s linear 1;
+        }
+
+        @keyframes move-left {
+            from {
+                transform: translateX(300px);
+            }
+
+            to {
+                transform: translate(0, 0);
+            }
+        }
+
+        .animate-zoomout {
+            animation: zoomout 0.5s linear 1;
+        }
+
+        @keyframes zoomout {
+            from {
+                transform: scale(1.4);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .animate-header {
+            animation: headerAnimation 2.5s linear 1;
+        }
+
+        @keyframes headerAnimation {
+            from {
+                transform: translateY(-200px);
+            }
+
+            to {
+                transform: translate(0, 0);
+            }
+        }
+
+        .animate-bottom {
+            animation: bottom 5s ease-out 1;
+        }
+
+        @keyframes bottom {
+            from {
+                opacity: 0;
+                transform: translateY(0px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <nav class="flex justify-between">
+        <div class="px-6 flex  flex-col items-center">
+            <div><i class="fa-regular fa-house"></i></div>
+            <h2>NORDIC FRAME</h2>
+        </div>
+        <div>
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Projects</a>
+            <a href="">Services</a>
+            <a href="">Contact</a>
+        </div>
+        <div>
+            <div><button>Get in Touch</button></div>
+            <div>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-telegram"></i>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- main -->
+    <main>
+        <!-- hero section -->
+        <section class="bg-gray-700 ">
+            <div class="container mx-auto relative pb-20 pt-32">
+                <img class="relative z-50 animate-zoomout" src="../DAY10/images/singlehouse.png" alt="">
+                <img class="absolute bottom-32   animate-move-right" src="../DAY10/images/tree left.png" alt="">
+                <img class="absolute bottom-32 right-0  animate-move-left" src="../DAY10/images/treeright.png" alt="">
+                <h2 class="absolute top-0 w-full flex justify-center text-white text-[150px] font-bold animate-header">
+                    MODERN</h2>
+                <h4 class="absolute z-[60] top-48 w-full flex justify-center text-6xl font-bold text-white animate-bottom">HOMES</h4>
+                <p class="bg-gray-600/70 w-fit py-6 px-3 text-xs absolute top-48 left-24 animate-bottom"> ARCHITECTURE// <br> COMFORT & <br>ELEGANCE</p>
+                <p class="bg-gray-600/70 w-fit pb-32 px-1 text-xs absolute top-64 left-64 z-[60] animate-bottom"> CONTEMPORARY <span>HOMES </span> <br> created for  <br>sophisticated</p>
+                <button class="px-3 py-2 bg-gray-600/70 rounded-3xl text-gray-400 absolute top-80 left-48 z-[60] animate-bottom"> view projects<i class="fa-solid fa-circle-arrow-up text-white text-3xl"></i></button>
+                <p class="bg-gray-600/30 w-fit absolute bottom-10 right-0 py-1 animate-bottom"><span class="text-white text-2xl">+25</span>COMPLETED HOMES <span class="text-white text-2xl">16</span> YEARS OF EXPERIENCE <span class="text-white text-2xl">12 </span>DESIGN AWARDS</p>
+            </div>
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>

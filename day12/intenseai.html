@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard Layout</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-[#f5f5f3]">
+
+    <section class="min-h-screen flex items-center justify-center p-5">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[190px_195px_195px] gap-3 max-w-[600px] w-full">
+
+            <!-- LEFT CARD -->
+            <div class="row-span-2 bg-gradient-to-br from-[#f5f9d5] via-[#e8f19e] to-[#f0f5b8] 
+                        rounded-2xl overflow-hidden relative min-h-[445px]">
+
+                <div class="p-5 relative z-10">
+
+                    <span class="text-[8px] border border-gray-300 bg-white px-2 py-1 tracking-wide">
+                        INTENSE TEAM
+                    </span>
+
+                    <h1 class="text-[21px] leading-[1.25] font-normal text-[#384116] mt-4">
+                        Where<br>
+                        Accountability<br>
+                        Meets Efficiency
+                    </h1>
+
+                    <p class="text-[8px] leading-4 text-gray-600 mt-5 w-[150px]">
+                        Intense Team provides the tools you need
+                        and is customizable, transparently, and
+                        collaboratively
+                    </p>
+
+                </div>
+
+                <!-- Decorative background -->
+                <div class="absolute bottom-0 left-0 w-full h-[190px] bg-[#f4d58a] 
+                            [clip-path:polygon(0_45%,100%_0,100%_100%,0_85%)]">
+                </div>
+
+                <!-- Person illustration placeholder -->
+                <div class="absolute bottom-0 left-0 right-0 flex justify-center z-10">
+                    <div class="relative">
+
+                        <!-- Head -->
+                        <div class="w-12 h-12 bg-[#f3bd9b] rounded-full mx-auto relative">
+                            <div class="absolute -top-2 left-1 w-11 h-6 bg-[#1e2540] rounded-full"></div>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="w-24 h-28 bg-[#f4c9a8] rounded-t-[40px] mt-1"></div>
+
+                        <!-- Laptop -->
+                        <div class="absolute bottom-5 -left-8 w-28 h-14 bg-[#77739b] 
+                                    rotate-[8deg] rounded">
+                            <div class="absolute top-5 left-5 w-3 h-2 bg-[#e68b76]"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- REAL TIME MONITORING -->
+            <div class="bg-[#477765] rounded-2xl p-4 min-h-[110px] text-white relative">
+
+                <h2 class="text-sm font-medium leading-4">
+                    Real-Time<br>
+                    Monitoring
+                </h2>
+
+                <div class="absolute right-5 top-8 text-4xl">
+                    ☝
+                </div>
+
+            </div>
+
+
+            <!-- CUSTOMIZABLE -->
+            <div class="row-span-2 bg-gradient-to-br from-[#e8f3ee] to-[#d7e8df]
+                        rounded-2xl p-4 relative min-h-[225px]">
+
+                <h2 class="text-sm font-medium text-[#294637]">
+                    Customizable<br>
+                    Solutions:
+                </h2>
+
+                <p class="text-[8px] leading-4 text-[#355347] mt-2">
+                    Intense Team provides the tools you need
+                    and is customizable.
+                </p>
+
+                <!-- Icons -->
+                <div class="absolute left-4 bottom-[75px] bg-white/60 p-2 rounded">
+                    ◴
+                </div>
+
+                <div class="absolute left-[78px] bottom-[62px] bg-white/60 p-2 rounded">
+                    ▭
+                </div>
+
+                <div class="absolute right-4 bottom-[45px] bg-white/60 p-2 rounded">
+                    ⌂
+                </div>
+
+            </div>
+
+
+            <!-- INACTIVITY ALERT -->
+            <div class="bg-[#317682] rounded-2xl p-4 min-h-[105px] text-white relative overflow-hidden">
+
+                <h2 class="text-sm font-medium">
+                    Inactivity Alerts
+                </h2>
+
+                <!-- Chart -->
+                <div class="absolute bottom-0 left-5 flex items-end gap-2">
+
+                    <div class="w-3 h-10 bg-[#e6f0df] rounded-t"></div>
+                    <div class="w-3 h-7 bg-[#cbded7] rounded-t"></div>
+                    <div class="w-3 h-14 bg-[#dce8dc] rounded-t"></div>
+                    <div class="w-3 h-8 bg-[#c9ddd5] rounded-t"></div>
+                    <div class="w-3 h-11 bg-[#d9e8e2] rounded-t"></div>
+
+                </div>
+
+                <div class="absolute right-5 top-7">
+                    ⚑
+                </div>
+
+            </div>
+
+
+            <!-- PERFORMANCE -->
+            <div class="bg-[#e2e8f0] rounded-2xl border border-[#b9c9dc] overflow-hidden min-h-[215px]">
+
+                <div class="p-5">
+
+                    <h2 class="text-sm font-medium text-[#2d4b56]">
+                        Performance Analytics:
+                    </h2>
+
+                    <p class="text-[8px] leading-4 text-gray-700">
+                        Track productivity and performance
+                        with actionable insights.
+                    </p>
+
+                </div>
+
+                <div class="border-t border-[#c9d5e4] pt-0">
+
+                    <div class="grid grid-cols-2 gap-3 p-3">
+
+                        <div class="bg-white/70 rounded-lg p-3 shadow-sm h-[88px]">
+                            <div class="text-sm">▣</div>
+
+                            <p class="text-[7px] text-gray-500 mt-2">
+                                Active time
+                            </p>
+
+                            <p class="text-[8px] font-medium">
+                                6hrs. 20min.
+                            </p>
+                        </div>
+
+                        <div class="bg-white/70 rounded-lg p-3 shadow-sm h-[88px]">
+                            <div class="text-sm">☼</div>
+
+                            <p class="text-[7px] text-gray-500 mt-2">
+                                Active time
+                            </p>
+
+                            <p class="text-[8px] font-medium">
+                                6hrs. 20min.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- APPRAISE TEAM -->
+            <div class="bg-[#415c7d] rounded-2xl overflow-hidden min-h-[215px] relative">
+
+                <div class="p-4 text-white">
+
+                    <h2 class="text-sm font-medium">
+                        Appraise your team
+                    </h2>
+
+                    <p class="text-[8px] leading-4">
+                        Track productivity and performance with
+                        actionable insights.
+                    </p>
+
+                </div>
+
+                <!-- Table -->
+                <div class="absolute bottom-0 right-0 w-[142px] bg-[#e8ece9]/90 
+                            rounded-tl-xl p-3">
+
+                    <p class="text-[6px] text-gray-500 mb-2">
+                        Employee Name
+                    </p>
+
+                    <div class="space-y-3 text-[7px]">
+
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox">
+                            <span>Dipika Giri</span>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox">
+                            <span>Jem Khadgi</span>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox">
+                            <span>Alina Sharma</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+</html>

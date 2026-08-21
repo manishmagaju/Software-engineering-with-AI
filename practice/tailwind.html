@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tailwind CSS — Full Topic Map</title>
+<style>
+  :root{
+    --ink:#1a1523;
+    --paper:#faf9f7;
+    --sub:#6b6478;
+    --line:#e8e5ef;
+    --card:#ffffff;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Segoe UI', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{
+    font-family:'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    padding:56px 24px 40px;
+    max-width:1180px;
+    margin:0 auto;
+    position:relative;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'SFMono-Regular', Consolas, monospace;
+    font-size:12.5px;
+    letter-spacing:.04em;
+    color:#fff;
+    background:linear-gradient(135deg,#0ea5e9,#6366f1);
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:22px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#fff;opacity:.85;}
+  h1{
+    font-size:clamp(34px,5vw,54px);
+    line-height:1.04;
+    margin:0 0 14px;
+    letter-spacing:-0.02em;
+    font-weight:800;
+  }
+  h1 .accent{
+    background:linear-gradient(90deg,#0ea5e9,#8b5cf6,#ec4899,#f59e0b);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  header p.lead{
+    max-width:620px;
+    color:var(--sub);
+    font-size:16.5px;
+    line-height:1.6;
+    margin:0 0 30px;
+  }
+
+  /* ---------- progress ---------- */
+  .progress-wrap{
+    max-width:620px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:18px 20px;
+    box-shadow:0 1px 2px rgba(20,10,40,.04);
+  }
+  .progress-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:10px;
+  }
+  .progress-top .label{
+    font-size:13px;
+    color:var(--sub);
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+  }
+  .progress-top .count{
+    font-family:'SFMono-Regular', Consolas, monospace;
+    font-size:14px;
+    font-weight:700;
+  }
+  .progress-track{
+    height:10px;
+    width:100%;
+    background:#f0eef7;
+    border-radius:999px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    width:0%;
+    border-radius:999px;
+    background:linear-gradient(90deg,#0ea5e9,#8b5cf6,#ec4899,#f59e0b);
+    transition:width .35s ease;
+  }
+
+  /* ---------- grid ---------- */
+  main{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px 90px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(320px,1fr));
+    gap:20px;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .card:hover{ box-shadow:0 8px 24px rgba(30,15,60,.07); transform:translateY(-2px); }
+
+  .card-head{
+    padding:18px 20px 16px;
+    position:relative;
+  }
+  .card-head .tag{
+    display:inline-block;
+    font-family:'SFMono-Regular', Consolas, monospace;
+    font-size:11.5px;
+    font-weight:700;
+    padding:3px 9px;
+    border-radius:6px;
+    margin-bottom:10px;
+    letter-spacing:.01em;
+  }
+  .card-head h2{
+    margin:0 0 4px;
+    font-size:19px;
+    font-weight:800;
+    letter-spacing:-0.01em;
+  }
+  .card-head .count-small{
+    font-size:12.5px;
+    color:var(--sub);
+    font-family:'SFMono-Regular', Consolas, monospace;
+  }
+
+  .mini-track{
+    height:5px;
+    width:100%;
+    background:#f0eef7;
+  }
+  .mini-fill{
+    height:100%;
+    width:0%;
+    transition:width .3s ease;
+  }
+
+  ul.items{
+    list-style:none;
+    margin:0;
+    padding:8px 10px 14px;
+    flex:1;
+  }
+  ul.items li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:7px 10px;
+    border-radius:10px;
+    cursor:pointer;
+    user-select:none;
+  }
+  ul.items li:hover{ background:#faf9fc; }
+
+  .box{
+    margin-top:2px;
+    flex:0 0 auto;
+    width:18px;height:18px;
+    border-radius:5px;
+    border:2px solid #d7d2e4;
+    display:flex;align-items:center;justify-content:center;
+    transition:all .15s ease;
+  }
+  .box svg{
+    width:11px;height:11px;
+    opacity:0;
+    transform:scale(.5);
+    transition:all .15s ease;
+    stroke:#fff;
+  }
+  li.checked .box svg{ opacity:1; transform:scale(1); }
+
+  .item-text{
+    font-size:14.5px;
+    line-height:1.4;
+    color:#3a3444;
+    transition:color .15s ease;
+  }
+  li.checked .item-text{
+    color:#b3aec2;
+    text-decoration:line-through;
+    text-decoration-thickness:1.5px;
+  }
+
+  footer{
+    text-align:center;
+    padding:0 24px 60px;
+    color:var(--sub);
+    font-size:13px;
+  }
+  footer .reset{
+    font-family:'SFMono-Regular', Consolas, monospace;
+    font-size:12.5px;
+    border:1px solid var(--line);
+    background:#fff;
+    padding:8px 16px;
+    border-radius:999px;
+    cursor:pointer;
+    color:var(--ink);
+    margin-top:6px;
+  }
+  footer .reset:hover{ background:#f5f3fa; }
+
+  @media (max-width:520px){
+    header{padding:40px 18px 28px;}
+    main{padding:0 18px 70px; gap:16px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow"><span class="dot"></span>mono:tracker&nbsp;·&nbsp;18 categories</div>
+  <h1>Tailwind CSS,<br><span class="accent">topic by topic.</span></h1>
+  <p class="lead">Every core area of Tailwind CSS — from setup to v4's CSS-first config — broken into checkable subtopics. Click any line to mark it done. Colors below mirror Tailwind's own utility palette.</p>
+
+  <div class="progress-wrap">
+    <div class="progress-top">
+      <span class="label">Overall progress</span>
+      <span class="count"><span id="doneCount">0</span> / <span id="totalCount">0</span></span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="overallFill"></div></div>
+  </div>
+</header>
+
+<main id="grid"></main>
+
+<footer>
+  Progress lives only in this page's memory — it won't survive a refresh.
+  <br>
+  <button class="reset" id="resetBtn">reset-all()</button>
+</footer>
+
+<script>
+const DATA = [
+  {
+    name: "Introduction & Setup",
+    hue: "#0ea5e9", light:"#e0f2fe", tagText:"#0369a1",
+    items: [
+      "What Tailwind CSS is & utility-first philosophy",
+      "Installing via npm / CLI",
+      "Installing via PostCSS",
+      "Installing via Vite / Next.js / framework guides",
+      "Play CDN for quick prototyping",
+      "tailwind.config.js structure",
+      "@tailwind base / components / utilities directives",
+      "Tailwind v4: CSS-first @theme configuration"
+    ]
+  },
+  {
+    name: "Core Concepts",
+    hue: "#8b5cf6", light:"#ede9fe", tagText:"#6d28d9",
+    items: [
+      "Utility-first fundamentals",
+      "Responsive breakpoints: sm, md, lg, xl, 2xl",
+      "Mobile-first responsive design",
+      "State variants: hover, focus, active, visited",
+      "Group & peer modifiers",
+      "Dark mode (class vs media strategy)",
+      "Arbitrary values with square brackets",
+      "Important modifier & specificity"
+    ]
+  },
+  {
+    name: "Layout",
+    hue: "#ec4899", light:"#fce7f3", tagText:"#be185d",
+    items: [
+      "Container & centering",
+      "Box sizing (border-box / content-box)",
+      "Display (block, inline, flex, grid, hidden)",
+      "Floats & clear",
+      "Object fit & object position",
+      "Overflow (auto, hidden, scroll, clip)",
+      "Position (static, relative, absolute, fixed, sticky)",
+      "Top / right / bottom / left / inset",
+      "Visibility",
+      "Z-index"
+    ]
+  },
+  {
+    name: "Flexbox & Grid",
+    hue: "#f59e0b", light:"#fef3c7", tagText:"#b45309",
+    items: [
+      "Flex direction & wrap",
+      "Flex grow / shrink / basis",
+      "Order",
+      "Grid template columns & rows",
+      "Grid column / row start-end (spanning)",
+      "Grid auto flow, auto columns, auto rows",
+      "Gap, gap-x, gap-y",
+      "Justify content / items / self",
+      "Align content / items / self",
+      "Place content / items / self"
+    ]
+  },
+  {
+    name: "Spacing",
+    hue: "#10b981", light:"#d1fae5", tagText:"#047857",
+    items: [
+      "Padding (p, px, py, pt, pr, pb, pl)",
+      "Margin (m, mx, my, negative margins)",
+      "Space-between utilities (space-x, space-y)",
+      "Custom spacing scale in config"
+    ]
+  },
+  {
+    name: "Sizing",
+    hue: "#14b8a6", light:"#ccfbf1", tagText:"#0f766e",
+    items: [
+      "Width utilities & fractional widths",
+      "Min-width / max-width",
+      "Height utilities",
+      "Min-height / max-height",
+      "Size utility (width + height shorthand)"
+    ]
+  },
+  {
+    name: "Typography",
+    hue: "#6366f1", light:"#e0e7ff", tagText:"#4338ca",
+    items: [
+      "Font family (sans, serif, mono)",
+      "Font size & line-height pairing",
+      "Font weight & font style",
+      "Font smoothing & variant numeric",
+      "Letter spacing (tracking)",
+      "List style type & position",
+      "Text alignment & color",
+      "Text decoration & underline offset",
+      "Text transform (uppercase, capitalize)",
+      "Text overflow, truncate, wrap, balance",
+      "Vertical align",
+      "Whitespace & word/line break",
+      "@tailwindcss/typography (prose) plugin"
+    ]
+  },
+  {
+    name: "Backgrounds",
+    hue: "#f97316", light:"#ffedd5", tagText:"#c2410c",
+    items: [
+      "Background color & opacity",
+      "Background attachment & clip",
+      "Background origin & position",
+      "Background repeat & size",
+      "Background image utilities",
+      "Linear / radial / conic gradients",
+      "Gradient color stops (from, via, to)"
+    ]
+  },
+  {
+    name: "Borders",
+    hue: "#84cc16", light:"#ecfccb", tagText:"#4d7c0f",
+    items: [
+      "Border radius (including logical corners)",
+      "Border width & individual sides",
+      "Border color & style (dashed, dotted)",
+      "Divide width & divide color (between children)",
+      "Outline width, color, offset",
+      "Ring width, color, offset (focus rings)"
+    ]
+  },
+  {
+    name: "Effects",
+    hue: "#a855f7", light:"#f3e8ff", tagText:"#7e22ce",
+    items: [
+      "Box shadow scale & colored shadows",
+      "Opacity utilities",
+      "Mix blend mode",
+      "Background blend mode",
+      "Mask utilities (v4)"
+    ]
+  },
+  {
+    name: "Filters & Backdrop Filters",
+    hue: "#06b6d4", light:"#cffafe", tagText:"#0e7490",
+    items: [
+      "Blur & backdrop-blur",
+      "Brightness & contrast",
+      "Drop shadow (filter) vs box shadow",
+      "Grayscale, sepia, invert",
+      "Hue-rotate & saturate",
+      "Combining multiple filters"
+    ]
+  },
+  {
+    name: "Tables",
+    hue: "#eab308", light:"#fef9c3", tagText:"#a16207",
+    items: [
+      "Border collapse & border spacing",
+      "Table layout (auto vs fixed)",
+      "Caption side"
+    ]
+  },
+  {
+    name: "Transitions & Animation",
+    hue: "#f43f5e", light:"#ffe4e6", tagText:"#be123c",
+    items: [
+      "Transition property, duration, delay",
+      "Timing functions (ease-in, ease-out, custom)",
+      "Built-in animations (spin, ping, pulse, bounce)",
+      "Custom keyframe animations in config"
+    ]
+  },
+  {
+    name: "Transforms",
+    hue: "#3b82f6", light:"#dbeafe", tagText:"#1d4ed8",
+    items: [
+      "Scale (x, y, uniform)",
+      "Rotate",
+      "Translate (x, y)",
+      "Skew",
+      "Transform origin",
+      "3D transforms & perspective (v4)"
+    ]
+  },
+  {
+    name: "Interactivity",
+    hue: "#22c55e", light:"#dcfce7", tagText:"#15803d",
+    items: [
+      "Appearance & accent-color",
+      "Cursor utilities",
+      "Pointer events",
+      "Resize",
+      "Scroll behavior, margin, padding",
+      "Scroll snap (type, align, stop)",
+      "Touch action",
+      "User select",
+      "Will change & caret color"
+    ]
+  },
+  {
+    name: "SVG & Accessibility",
+    hue: "#d946ef", light:"#fae8ff", tagText:"#a21caf",
+    items: [
+      "Fill & fill color",
+      "Stroke, stroke width, stroke color",
+      "Screen-reader-only (sr-only) utility",
+      "Forced-colors mode support"
+    ]
+  },
+  {
+    name: "Customization & Theming",
+    hue: "#0d9488", light:"#ccfbf1", tagText:"#115e59",
+    items: [
+      "Extending vs overriding the theme",
+      "Custom color palettes & design tokens",
+      "Custom fonts, spacing, breakpoints",
+      "Writing plugins with addUtilities/addComponents",
+      "@apply for extracting component classes",
+      "CSS variables & theme() function"
+    ]
+  },
+  {
+    name: "Ecosystem & Advanced",
+    hue: "#7c3aed", light:"#ede9fe", tagText:"#5b21b6",
+    items: [
+      "Just-in-Time engine & content configuration",
+      "Purging unused styles for production",
+      "Tailwind with React / Vue / Svelte",
+      "Headless UI & Tailwind UI components",
+      "class-variance-authority / clsx patterns",
+      "Tailwind Merge for conflicting classes",
+      "Tailwind v4 migration notes"
+    ]
+  }
+];
+
+const grid = document.getElementById('grid');
+let totalItems = 0;
+
+DATA.forEach((cat, ci) => {
+  totalItems += cat.items.length;
+
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.style.borderTop = `4px solid ${cat.hue}`;
+
+  const head = document.createElement('div');
+  head.className = 'card-head';
+  head.innerHTML = `
+    <span class="tag mono" style="background:${cat.light}; color:${cat.tagText}">bg-${cat.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')}</span>
+    <h2>${cat.name}</h2>
+    <div class="count-small"><span class="cat-done">0</span> / ${cat.items.length} complete</div>
+  `;
+  card.appendChild(head);
+
+  const miniTrack = document.createElement('div');
+  miniTrack.className = 'mini-track';
+  const miniFill = document.createElement('div');
+  miniFill.className = 'mini-fill';
+  miniFill.style.background = cat.hue;
+  miniTrack.appendChild(miniFill);
+  card.appendChild(miniTrack);
+
+  const ul = document.createElement('ul');
+  ul.className = 'items';
+
+  cat.items.forEach((text) => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <span class="box" style="border-color:${cat.hue}66;">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </span>
+      <span class="item-text">${text}</span>
+    `;
+    const box = li.querySelector('.box');
+
+    li.addEventListener('click', () => {
+      li.classList.toggle('checked');
+      if (li.classList.contains('checked')) {
+        box.style.background = cat.hue;
+        box.style.borderColor = cat.hue;
+      } else {
+        box.style.background = 'transparent';
+        box.style.borderColor = cat.hue + '66';
+      }
+      updateProgress();
+    });
+
+    ul.appendChild(li);
+  });
+
+  card.appendChild(ul);
+  grid.appendChild(card);
+});
+
+document.getElementById('totalCount').textContent = totalItems;
+
+function updateProgress(){
+  let doneTotal = 0;
+  document.querySelectorAll('.card').forEach(card => {
+    const items = card.querySelectorAll('ul.items li');
+    const done = card.querySelectorAll('ul.items li.checked').length;
+    doneTotal += done;
+    card.querySelector('.cat-done').textContent = done;
+    const fill = card.querySelector('.mini-fill');
+    fill.style.width = (done / items.length * 100) + '%';
+  });
+  document.getElementById('doneCount').textContent = doneTotal;
+  document.getElementById('overallFill').style.width = (doneTotal / totalItems * 100) + '%';
+}
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  document.querySelectorAll('ul.items li.checked').forEach(li => li.click());
+});
+
+updateProgress();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "software",
+  "version": "1.0.0",
+  "description": "software by manish",
+  "keywords": [
+    "vibe",
+    "coding"
+  ],
+  "homepage": "https://github.com/manishmagaju/Software-engineering-with-AI#readme",
+  "bugs": {
+    "url": "https://github.com/manishmagaju/Software-engineering-with-AI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manishmagaju/Software-engineering-with-AI.git"
+  },
+  "license": "ISC",
+  "author": "manish",
+  "type": "commonjs",
+  "main": "\\",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon day15/cipher.js"
+
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

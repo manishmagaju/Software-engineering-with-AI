@@ -1,4 +1,4 @@
-//first maths function
+//first maths function------------------------------------------------------
 function maths(x){
     if(x>3){
         console.log("ans of first function",3*x-2)
@@ -11,7 +11,7 @@ function maths(x){
 
 maths(4)
 
-//second maths function
+//second maths function----------------------------------------------------
 
 
 function mathstwo(y){
@@ -26,7 +26,7 @@ function mathstwo(y){
 
 mathstwo(-3)
 
-//third maths function
+//third maths function---------------------------------------------------------
 
 function mathsthree(z){
     if(z < -3 ){

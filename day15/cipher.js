@@ -7,6 +7,7 @@ for (let i = 0; i < message.length; i++) {
     let letter = message[i];
 
     let number = letter.charCodeAt(0);
+    console.log(number)
 
     number = number + 1;
 
@@ -14,5 +15,6 @@ for (let i = 0; i < message.length; i++) {
 
     result = result + newLetter;
 }
+typeof(null)
 
 console.log(result);
